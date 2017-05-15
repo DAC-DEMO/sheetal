@@ -22,5 +22,21 @@ module.exports = {
             }
             connection.end();
         });
+    },
+
+    "readAllPost": function(callback) {
+        var connection = mysql.createConnection(config);
+        connection.connect();
+        var sql = "SELECT * FROM POST";
+
+        connection.query(sql, function(err, data) {
+            if (!err) {
+                console.log(data);
+            }
+
+            callback(err, data);
+
+            connection.end();
+        });
     }
 };

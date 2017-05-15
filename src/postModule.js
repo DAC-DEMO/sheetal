@@ -9,4 +9,12 @@ router.post("/", function(req, res) {
     res.json({ 'operation': true });
 });
 
+router.get("/", function(req, res) {
+    postModuleDB.readAllPost(function(err, data) {
+        res.json(data);
+    });
+
+
+});
+
 module.exports = router;
