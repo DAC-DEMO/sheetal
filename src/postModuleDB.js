@@ -27,7 +27,7 @@ module.exports = {
     "readAllPost": function(callback) {
         var connection = mysql.createConnection(config);
         connection.connect();
-        var sql = "SELECT * FROM POST";
+        var sql = "SELECT * FROM POST ORDER BY ID DESC";
 
         connection.query(sql, function(err, data) {
             if (!err) {
